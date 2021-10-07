@@ -1,4 +1,4 @@
-# PS1="[%n@%m][%1~]%# "
+# PROMPT
 parse_pyenv() {
     p=$(pyenv version | awk '{print $1;}')
     [[ $p == "system" ]] && echo "" || echo "($p)"
@@ -13,7 +13,7 @@ COLOR_GIT='%F{39}'
 COLOR_PYENV='%F{148}'
 NEWLINE=$'\n'
 setopt PROMPT_SUBST
-export PROMPT='${COLOR_PYENV}$(parse_pyenv)${COLOR_USR}%n@%M${COLOR_DIR}[%1~]${COLOR_GIT}$(parse_git_branch)${COLOR_DEF}${NEWLINE}%# '
+export PROMPT='${COLOR_PYENV}$(parse_pyenv)${COLOR_USR}%B%n@%m%b${COLOR_DIR}[%1~]${COLOR_GIT}$(parse_git_branch)${COLOR_DEF}${NEWLINE}%# '
 
 # pyenv
 eval "$(pyenv init -)"
@@ -27,3 +27,7 @@ export EDITOR=code
 # git
 source $DOTS/git
 
+# dev aliases
+alias dev="cd ~/dev"
+
+source $DOTS/cm
