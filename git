@@ -1,7 +1,9 @@
 alias gst="git status"
 alias gc="git commit"
 alias gd="git diff"
-alias gco="git checkout -b"
-alias gc="git checkout"
+alias gcob="git checkout -b"
+alias gco="git checkout"
+alias gcd="git commit -am '$(date)'"
+alias gca="git commit --amend"
 
 git config --global core.excludesfile $DOTS/.gitignore_global
