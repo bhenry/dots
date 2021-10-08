@@ -29,5 +29,6 @@ source $DOTS/git
 
 # dev aliases
 alias dev="cd ~/dev"
+alias la="ls -al"
 
 source $DOTS/cm

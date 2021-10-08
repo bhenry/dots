@@ -1,0 +1,10 @@
+.python-version
+.idea
+/venv
+package-lock.json
+/node_modules
+/.vscode
+dev-start.py
+.noseids
+.DS_Store
+patch.*

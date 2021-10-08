@@ -4,3 +4,4 @@ alias gd="git diff"
 alias gco="git checkout -b"
 alias gc="git checkout"
 
+git config --global core.excludesfile $DOTS/.gitignore_global
