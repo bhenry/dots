@@ -22,7 +22,7 @@ eval "$(pyenv init --path)"
 export PYENV_VIRTUALENV_DISABLE_PROMPT=1
 
 # default code editor
-export EDITOR=code
+export EDITOR=emacs
 
 # git
 source $DOTS/git
@@ -30,5 +30,9 @@ source $DOTS/git
 # dev aliases
 alias dev="cd ~/dev"
 alias la="ls -al"
+alias blk="black --config pyproject.toml --check ."
+alias lint="flake8 && blk"
+alias pt="pytest && lint"
+alias nt="nosetests && lint"
 
 source $DOTS/cm
