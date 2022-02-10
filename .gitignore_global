@@ -8,3 +8,4 @@ dev-start.py
 .noseids
 .DS_Store
 patch.*
+.devcontainer/

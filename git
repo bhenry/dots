@@ -6,5 +6,8 @@ alias gcob="git checkout -b"
 alias gco="git checkout"
 alias gcd="git commit -am '$(date)'"
 alias gcam="git commit --amend"
+alias gitrm="git diff --diff-filter=D --name-only -z | xargs -0 git rm"
 
 git config --global core.excludesfile $DOTS/.gitignore_global
+
+autoload -Uz compinit && compinit
