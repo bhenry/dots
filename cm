@@ -3,3 +3,11 @@ export PATH="/usr/local/opt/postgresql@9.6/bin:$PATH"
 export PATH="/usr/local/opt/postgresql@11.12/bin:$PATH"
 
 alias pip-reset="pip freeze --exclude-editable | xargs pip uninstall -y;pip install -r requirements.txt;"
+
+alias pv='echo "PYTHON_VERSION=${PYTHON_VERSION}"'
+alias pv2='export PYTHON_VERSION=2'
+alias pv3='export PYTHON_VERSION=3'
+
+alias delpyc='find . -name "*.pyc" -exec rm -f {} \;'
+
+alias delbak='rm ./**/*.bak'
