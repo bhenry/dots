@@ -10,11 +10,20 @@ NEWLINE=$'\n'
 setopt PROMPT_SUBST
 export PROMPT='${COLOR_USR}%B%n@%m%b${COLOR_DIR}[%1~]${COLOR_GIT}$(parse_git_branch)${COLOR_DEF}${NEWLINE}%# '
 
+# Homebrew
+if [ ! -f /opt/homebrew/bin/brew ]; then
+    # Install Homebrew
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+else
+    eval "$(/opt/homebrew/bin/brew shellenv)"
+    brew update > /dev/null 2>&1
+fi
+
 # pyenv
-#eval "$(pyenv init -)"
-#eval "$(pyenv virtualenv-init -)"
-#eval "$(pyenv init --path)"
-export PYENV_VIRTUALENV_DISABLE_PROMPT=1
+# eval "$(pyenv init -)"
+# eval "$(pyenv virtualenv-init -)"
+# eval "$(pyenv init --path)"
+# export PYENV_VIRTUALENV_DISABLE_PROMPT=1
 
 # default code editor
 export EDITOR=emacs
