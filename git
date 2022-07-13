@@ -2,15 +2,22 @@ alias gst="git status"
 alias gc="git commit -m"
 alias gca="git commit -am"
 alias gd="git diff"
+alias gap="git add python"
 alias gcob="git checkout -b"
 alias gco="git checkout"
-alias gcd="git commit -am '$(date)'"
+gcd() { git commit -am '$(date)'; }
 alias gcam="git commit --amend"
 alias gitrm="git diff --diff-filter=D --name-only -z | xargs -0 git rm"
 
-alias gpo="git push origin"
+alias gb="git branch 2> /dev/null | sed -n -e 's/^\* \(.*\)/\1/p'"
+
+#pulling
+gpull() { git pull origin $(gb); }
 alias gpmaster="git pull origin master"
 alias gpmain="git pull origin main"
+
+#pushing
+alias gpo="git push origin"
 
 git config --global core.excludesfile $DOTS/.gitignore_global
 

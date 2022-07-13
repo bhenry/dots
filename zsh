@@ -35,4 +35,12 @@ alias lint="flake8 && blk"
 alias pt="pytest && lint"
 alias nt="nosetests && lint"
 
+alias http="python -m SimpleHTTPServer"
+
+# usage: whatport :80
+alias whatport="lsof -i"
+
 source $DOTS/cm
+
+export PATH=$PATH:$DOTS/python
+
