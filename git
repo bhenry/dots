@@ -20,5 +20,6 @@ alias gpmain="git pull origin main"
 alias gpo="git push origin"
 
 git config --global core.excludesfile $DOTS/.gitignore_global
+git config --global pull.rebase false
 
 autoload -Uz compinit && compinit
