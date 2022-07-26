@@ -8,8 +8,14 @@ COLOR_DIR='%F{197}'
 COLOR_GIT='%F{39}'
 NEWLINE=$'\n'
 setopt PROMPT_SUBST
-export PROMPT='${COLOR_USR}%B%n@%m%b${COLOR_DIR}[%1~]${COLOR_GIT}$(parse_git_branch)${COLOR_DEF}${NEWLINE}%# '
+PROMPTTIME='[%D{%H:%M:%S}] '
+export PROMPT='${COLOR_USR}%B%n@%m%b${COLOR_DIR}[%1~]${COLOR_GIT}$(parse_git_branch)${COLOR_DEF}${NEWLINE}${PROMPTTIME}%# '
 
+TMOUT=1
+
+TRAPALRM() {
+    zle reset-prompt
+}
 # Homebrew
 if [ ! -f /opt/homebrew/bin/brew ]; then
     # Install Homebrew
@@ -47,4 +53,3 @@ alias whatport="lsof -i"
 source $DOTS/cm
 
 export PATH=$PATH:$DOTS/python
-
