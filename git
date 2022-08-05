@@ -27,5 +27,7 @@ alias gpo="git push origin"
 
 git config --global core.excludesfile $DOTS/.gitignore_global
 git config --global pull.rebase false
+git config --global user.name "bhenry"
+git config --global user.email "brandonmhenry@gmail.com"
 
 autoload -Uz compinit && compinit

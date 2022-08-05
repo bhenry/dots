@@ -13,3 +13,4 @@ alias delpyc='find . -name "*.pyc" -exec rm -f {} \;'
 alias delbak='rm ./**/*.bak'
 
 alias showrefreeze='cat $DOTS/python/refreeze.sh'
+git config --global user.email "bhenry@campaignmonitor.com"

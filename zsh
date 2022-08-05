@@ -11,11 +11,11 @@ setopt PROMPT_SUBST
 PROMPTTIME='[%D{%H:%M:%S}] '
 export PROMPT='${COLOR_USR}%B%n@%m%b${COLOR_DIR}[%1~]${COLOR_GIT}$(parse_git_branch)${COLOR_DEF}${NEWLINE}${PROMPTTIME}%# '
 
-TMOUT=1
+# TMOUT=1
+# TRAPALRM() {
+#     zle reset-prompt
+# }
 
-TRAPALRM() {
-    zle reset-prompt
-}
 # Homebrew
 if [ ! -f /opt/homebrew/bin/brew ]; then
     # Install Homebrew
@@ -32,6 +32,9 @@ fi
 # export PYENV_VIRTUALENV_DISABLE_PROMPT=1
 
 # default code editor
+if [ ! /opt/homebrew/bin/emacs ]; then
+    brew install emacs
+fi
 export EDITOR=emacs
 
 # git
