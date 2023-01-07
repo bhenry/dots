@@ -58,3 +58,11 @@ alias editdots="vim $DOTS"
 export PATH=$PATH:$DOTS/python
 
 export AOCTOKEN="53616c7465645f5f3c2bfb57fa202c2ec29d3e801519b77dfce767782f7f95e08eac7ad7696d3f2ab26bebdc178bbae71c475611c409af93a840e53f11f871bc"
+
+
+## advent of code
+alias aoc="cd ~/scratch/adventofcode && make up && code ."
+
+eul() {
+    make prob PROB=$1
+}

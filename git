@@ -10,6 +10,8 @@ alias gcam="git commit --amend"
 alias gitrm="git diff --diff-filter=D --name-only -z | xargs -0 git rm"
 
 alias gb="git branch 2> /dev/null | sed -n -e 's/^\* \(.*\)/\1/p'"
+alias gbd="git branch -d"
+alias gbl="git branch"
 
 #pulling
 gclone() {
