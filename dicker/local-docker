@@ -1,0 +1,8 @@
+# Get the image name from the Dockerfile in the present working directory
+IMAGE_NAME=`sed -n "s/FROM //p" Dockerfile`
+IMAGE_NAME=${IMAGE_NAME##* }
+# Get the platform from the image
+PLATFORM=`docker inspect --format="{{.Os}}/{{.Architecture}}" $IMAGE_NAME`
+NEWFROM="FROM --platform=$PLATFORM $IMAGE_NAME"
+# Replace the FROM line in the Dockerfile with the new FROM line
+sed -i "" "s|FROM.*|$NEWFROM|g" Dockerfile

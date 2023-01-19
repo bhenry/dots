@@ -9,3 +9,5 @@ dev-start.py
 .DS_Store
 patch.*
 .devcontainer/
+.pyc
+__pycache__/
