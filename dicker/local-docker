@@ -1,7 +1,8 @@
 # Get the image name from the Dockerfile in the present working directory
 IMG=`grep FROM Dockerfile`
-# remove the from from the line
+# Remove the FROM from the line
 IMG=${IMG##* }
+# Pull the image so it gets listed in `docker image ls`
 docker pull $IMG
 # Get the platform from the image
 PLATFORM=`docker inspect --format="{{.Os}}/{{.Architecture}}" $IMG`
