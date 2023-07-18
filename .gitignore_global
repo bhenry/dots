@@ -1,7 +1,6 @@
 .python-version
 .idea
 /venv
-package-lock.json
 /node_modules
 /.vscode
 dev-start.py
@@ -11,3 +10,4 @@ patch.*
 .devcontainer/
 .pyc
 __pycache__/
+package-lock.json
