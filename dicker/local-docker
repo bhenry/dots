@@ -2,8 +2,10 @@
 IMG=`grep FROM Dockerfile`
 # Remove the FROM from the line
 IMG=${IMG##* }
-# Pull the image so it gets listed in `docker image ls`
-docker pull $IMG
+# If the image is not in the local registry, pull it
+if ! docker image ls | grep $IMG; then
+  docker pull $IMG
+fi
 # Get the platform from the image
 PLATFORM=`docker inspect --format="{{.Os}}/{{.Architecture}}" $IMG`
 NEWFROM="FROM --platform=$PLATFORM $IMG"

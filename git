@@ -12,14 +12,20 @@ alias gitrm="git diff --diff-filter=D --name-only -z | xargs -0 git rm"
 alias gb="git branch 2> /dev/null | sed -n -e 's/^\* \(.*\)/\1/p'"
 alias gbd="git branch -d"
 alias gbl="git branch"
+alias git_un_commit="git reset --soft HEAD~"
 
 #pulling
 gclone() {
+    cd ~/dev
     git clone $1
     repo=${1%.git}
     folder=${repo##*/}
     cd $folder
 }
+git@() {
+    gclone git@$1
+}
+
 gpull() { git pull origin $(gb) }
 alias gpmaster="git pull origin master"
 alias gpmain="git pull origin main"
