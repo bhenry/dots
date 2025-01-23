@@ -27,6 +27,16 @@ git@() {
 }
 
 gpull() { git pull origin $(gb) }
+get_main_branch() {
+    git branch -r | grep -E 'origin/HEAD' | sed 's/origin\/HEAD -> origin\///' | head -n 1 | xargs
+}
+gw() {
+    git stash
+    gco `get_main_branch`
+    gpull
+    gcob $1
+    code .
+}
 alias gpmaster="git pull origin master"
 alias gpmain="git pull origin main"
 
@@ -36,6 +46,6 @@ alias gpo="git push origin"
 git config --global core.excludesfile $DOTS/.gitignore_global
 git config --global pull.rebase false
 git config --global user.name "bhenry"
-git config --global user.email "brandonmhenry@gmail.com"
+git config --global user.email "bhenry@campaignmonitor.com"
 
 autoload -Uz compinit && compinit

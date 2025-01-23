@@ -37,6 +37,9 @@ if [ ! /opt/homebrew/bin/emacs ]; then
 fi
 export EDITOR=emacs
 
+# source private exports (not to be committed)
+source $DOTS/exports/private
+
 # git
 source $DOTS/git
 
@@ -56,15 +59,28 @@ alias whatport="lsof -i"
 # cm
 source $DOTS/cm
 
-alias editdots="vim $DOTS"
+# python stuff
+source $DOTS/py
+
 export PATH=$PATH:$DOTS/python:$DOTS/dicker
 
-export AOCTOKEN="53616c7465645f5f3c2bfb57fa202c2ec29d3e801519b77dfce767782f7f95e08eac7ad7696d3f2ab26bebdc178bbae71c475611c409af93a840e53f11f871bc"
-
+export AOCTOKEN="53616c7465645f5fc5556ef39fc0a8c354de0df6870d6e42c53424300a50e0d523480aeda09a443856c01b0aafe4059e7e1f960f00c73100be92cbe1c81a91b9"
 
 ## advent of code
 alias aoc="cd ~/scratch/adventofcode && make up && code ."
-
+alias euler="cd ~/scratch/euler && make up && code ."
 eul() {
     make prob PROB=$1
 }
+
+
+alias wttr="curl 'https://wttr.in/searsmont?'"
+
+
+### AWS STUFF
+export AWS_ACCESS_KEY_ID=
+export AWS_SECRET_ACCESS_KEY=
+alias awslocal="AWS_ACCESS_KEY_ID=${AWS_ACCESS_KEY_ID} AWS_SECRET_ACCESS_KEY=${AWS_SECRET_ACCESS_KEY} AWS_DEFAULT_REGION=${DEFAULT_REGION:-$AWS_DEFAULT_REGION} aws --endpoint-url=http://${LOCALSTACK_HOST:-localhost}:4566"
+
+# node
+export PATH="/opt/homebrew/opt/node@20/bin:$PATH"
